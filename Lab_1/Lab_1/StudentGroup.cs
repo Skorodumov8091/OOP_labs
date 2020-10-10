@@ -57,13 +57,17 @@ namespace Lab_1
         }
         public static int CompareByFIO(Student student1, Student student2)
         {
-            if (student1.name == student2.name)
+            if (student1.surname == student2.surname)
             {
-                return String.Compare(student1.middleName, student2.middleName);
-            }
-            else if (student1.surname == student2.surname)
-            {
-                return String.Compare(student1.name, student2.name);
+                if (student1.name == student2.name)
+                {
+                    return String.Compare(student1.middleName, student2.middleName);
+                }
+                else
+                {
+                    return String.Compare(student1.name, student2.name);
+                }
+                
             }
             else
             {

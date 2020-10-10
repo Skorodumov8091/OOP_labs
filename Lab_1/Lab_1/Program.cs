@@ -13,7 +13,7 @@ namespace Lab_1
             Student student3 = new Student("Иванов", "Иван", "Иванович", new List<int> { 5, 3, 4, 2 });
             Student student4 = new Student("Иванов", "Сергей", "Иванович", new List<int> { 4, 4, 4, 4 });
             Student student5 = new Student("Дмитриев", "Дмитрий", "Дмитриевич", new List<int> { 5, 5, 5, 5 });
-            Student student6 = new Student("Павлов", "Павел", "Павлович", new List<int> { 5, 5, 4, 4 });
+            Student student6 = new Student("Павлов", "Павел", "Павлович", new List<int> { 5, 5, 4, 4 });      
 
             // Создание группы studentGroup_1
             StudentGroup studentGroup1 = new StudentGroup("Группа_1", 2);
