@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace Lab_1
@@ -73,20 +74,8 @@ namespace Lab_1
         }
         public static int CompareByGrades(Student student1, Student student2)
         {
-            int size_1 = student1.grades.Count;
-            int size_2 = student2.grades.Count;
-            double srGrades1 = 0;
-            double srGrades2 = 0;
-            for (int i = 0; i < size_1; ++i)
-            {
-                srGrades1 += student1.grades[i];
-            }
-            for (int i = 0; i < size_2; ++i)
-            {
-                srGrades2 += student2.grades[i];
-            }
-            srGrades1 /= size_1;
-            srGrades2 /= size_2;
+            double srGrades1 = srGrades(student1);
+            double srGrades2 = srGrades(student2);
             if (srGrades1 < srGrades2)
             { 
                 return 1;
@@ -99,6 +88,16 @@ namespace Lab_1
             {
                 return 0;
             }
+        }
+        public static double srGrades(Student student)
+        {
+            int size = student.grades.Count;
+            double srGrades = 0;
+            for (int i = 0; i < size; ++i)
+            {
+                srGrades += student.grades[i];
+            }
+            return srGrades /= size;
         }
         public override string ToString()
         {
