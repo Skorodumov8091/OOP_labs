@@ -6,7 +6,6 @@ namespace Lab_1
 {
     public class StudentGroup
     {
-        private int currentNumberStudent = 0;
         public string nameGroup { get; private set; }
         public int numberStudent { get; private set; }
         public List<Student> students { get; private set; }
@@ -18,10 +17,9 @@ namespace Lab_1
         }
         public bool addStudent(Student student)
         {
-            if (currentNumberStudent < numberStudent)
+            if (students.Count < numberStudent)
             {
                 students.Add(student);
-                ++currentNumberStudent;
                 return true;
             }
             else
@@ -31,15 +29,11 @@ namespace Lab_1
         }
         public void removeStudent(Student student)
         {
-            if (currentNumberStudent != 0 && students.Contains(student))
-            {
-                students.Remove(student);
-                --currentNumberStudent;
-            }
+            students.Remove(student);
         }
         public Student searchStudentByFIO(string surname, string name, string middleName)
         {
-            if (currentNumberStudent != 0)
+            if (students.Count != 0)
             {
                 foreach (Student el in students)
                 {
@@ -77,19 +71,22 @@ namespace Lab_1
         public void sortStudentGroupGrades() {
             students.Sort(CompareByGrades);
         }
-
         public static int CompareByGrades(Student student1, Student student2)
         {
-            int size = student1.grades.Count;
+            int size_1 = student1.grades.Count;
+            int size_2 = student2.grades.Count;
             double srGrades1 = 0;
             double srGrades2 = 0;
-            for (int i = 0; i < size; ++i)
+            for (int i = 0; i < size_1; ++i)
             {
                 srGrades1 += student1.grades[i];
+            }
+            for (int i = 0; i < size_2; ++i)
+            {
                 srGrades2 += student2.grades[i];
             }
-            srGrades1 /= size;
-            srGrades2 /= size;
+            srGrades1 /= size_1;
+            srGrades2 /= size_2;
             if (srGrades1 < srGrades2)
             { 
                 return 1;
