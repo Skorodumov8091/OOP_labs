@@ -35,6 +35,12 @@ namespace Lab_1
             {
                 str += $"{this.grades[i]} ";
             }
+            if (examens.Count > 0)
+            {
+                str += "\nExamens:\n";
+                foreach (Examen ex in examens)
+                    str += $"{ex.name}: {ex.grade}\n";
+            }
             return str;
         }
     }
@@ -76,7 +82,7 @@ namespace Lab_1
         {
             Examen examen = GetOrAddExamen(name);
             if (examen.LastAttempt())
-                return 3;
+                return examen.grade = 3;
             else 
                 return examen.Exam(2, 5);
         }
